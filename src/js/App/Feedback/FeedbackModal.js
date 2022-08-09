@@ -94,17 +94,19 @@ const FeedbackModal = ({ user }) => {
         <OutlinedCommentsIcon />
         Feedback
       </Button>
-      <Modal isOpen={isOpen} className="chr-c-feedback-modal" variant={ModalVariant.medium} onClose={handleCloseModal}>
-        <Grid>
-          <GridItem span={8} rowSpan={12}>
-            <ModalDescription modalPage={modalPage} />
-          </GridItem>
-          <GridItem span={4} className="chr-c-feedback-image">
-            <img className="chr-c-feedback-image" src={feedbackIllo} />
-          </GridItem>
-        </Grid>
-        {!isAvailable && <Label color="red"> Submitting feedback only works in prod and stage </Label>}
-      </Modal>
+      <div className="chr-c-feedback-modal">
+        <Modal isOpen={isOpen} variant={ModalVariant.medium} onClose={handleCloseModal}>
+          <Grid>
+            <GridItem span={8} rowSpan={12}>
+              <ModalDescription modalPage={modalPage} />
+            </GridItem>
+            <GridItem span={4} className="chr-c-feedback-image">
+              <img className="chr-c-feedback-image" src={feedbackIllo} />
+            </GridItem>
+          </Grid>
+          {!isAvailable && <Label color="red"> Submitting feedback only works in prod and stage </Label>}
+        </Modal>
+      </div>
     </React.Fragment>
   );
 };
